@@ -1,0 +1,30 @@
+<%= form_with(model: tipo) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :siglas, style: "display: block", class: "form-label" %>
+    <%= form.text_field :siglas, class: "form-control" %>
+    <div style="color: red">
+      <% if tipo.errors.include?(:siglas) %>
+          <% tipo.errors.full_messages_for(:siglas).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :nombre, style: "display: block", class: "form-label" %>
+    <%= form.text_field :nombre, class: "form-control" %>
+    <div style="color: red">
+      <% if tipo.errors.include?(:nombre) %>
+          <% tipo.errors.full_messages_for(:nombre).each do |error_message| %>
+            <%= error_message %>.
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Save", class: "btn btn-success btn-block" %>
+  </div>
+<% end %>

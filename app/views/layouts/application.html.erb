@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modaldemo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <nav>
+        <%= link_to 'Inicio', root_path %>
+        <%= link_to 'Tipos', tipos_path %>
+        <%= link_to 'Items', items_path %>
+        </nav>
+        <p style="color: green"><%= notice %></p>
+        <%= yield %>
+        <%= turbo_frame_tag "remote_modal", target: "_top" %>
+      </div>
+    </div>
+  </body>
+</html>
